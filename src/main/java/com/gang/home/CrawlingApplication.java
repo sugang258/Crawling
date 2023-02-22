@@ -27,8 +27,9 @@ public class CrawlingApplication {
 		
 		String WeatherURL = "https://weather.naver.com/today";
 		Document doc = Jsoup.connect(WeatherURL).get();
+//		System.out.println(doc.toString());
 		
-		Elements elements = doc.select("#hourly .weather_graph .scroll_control .scroll_area .weather_table_wrap ._cnTimeTable ._cnItemTime");
+		Elements elements = doc.select(".scroll_area .weather_table_wrap ._cnTimeTable");
 		
 		String[] str = elements.text().split(" ");
 		
@@ -37,13 +38,13 @@ public class CrawlingApplication {
 			System.out.println(str[i]);
 		}
 		
-		for(Element e : elements.select("i")) {
-			System.out.println(e.text());
-			if(e.className().equals("blind")) {
-				System.out.println("eee" + e.text());
-			}
-			
-		}
+//		for(Element e : elements.select("i")) {
+//			System.out.println(e.text());
+//			if(e.className().equals("blind")) {
+//				System.out.println("eee" + e.text());
+//			}
+//			
+//		}
 		
 		
 		
